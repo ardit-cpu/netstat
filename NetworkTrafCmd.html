@@ -1,0 +1,103 @@
+<title>NETWORK TRAFIC RECORDER</title>
+<html style="background:rgb(6, 124, 179);">
+<h1 style="text-align: center;
+font-size: 50px;
+">Network Trafic Recorder </h1>
+<footer style="position: absolute;
+bottom: 0px;
+">CODE WRITEN BY ARDIT BERISHA</footer>
+    <div class="buttons">
+        <textarea id="text" style="visibility: hidden;">@echo off
+
+            echo Do You Want To Record Your Internet Traffic
+            
+             echo [YES, NO] 
+             set/p "Yes=" 
+            
+            
+            if NOT %Yes%==yes goto FAIL
+            echo OK Your trafic is Recording 
+            ping localhost -n 2 > nul
+            cls
+            echo 1.
+            ping localhost -n 2 > nul
+            cls
+            echo 2..
+            ping localhost -n 2 > nul
+            cls
+            echo 3..
+            ping localhost -n 2 > nul
+            cls
+            echo Creating Folder
+            mkdir NETWORK_TRAFFIC 
+            ping localhost -n 1 > nul
+            echo Folder Created
+            cd NETWORK_TRAFFIC 
+            ping localhost -n 3 > nul
+            color 2 
+            echo trafic is Recording
+            ping localhost -n 2 > nul
+            netstat -n 2 > Trafic.txt 
+            echo Here is The live Record Network Trafic
+            netstat
+            ping localhost -n 2 > nul
+            exit
+            :FAIL 
+            echo Traffic Is Not Recording
+            
+            ping localhost -n 2 > nul
+            echo Exiting in 3
+            ping localhost -n 2 > nul
+            echo Exiting in 2
+            ping localhost -n 2 > nul
+            echo Exiting in 1
+            ping localhost -n 3> nul
+            exit
+            pause > nul</textarea>
+        <button id="btn">Download The program</button>
+    </div>
+</html>
+
+    <script>
+            function download(filename, textInput, publisher) {
+
+                  var element = document.createElement('a');
+                  element.setAttribute('href','data:text/plain;charset=utf-8, ' + encodeURIComponent(textInput));
+                  element.setAttribute('download', filename);
+                  document.body.appendChild(element);
+                  element.click();
+                  //document.body.removeChild(element);
+            }
+            document.getElementById("btn")
+                  .addEventListener("click", function () {
+                        var text = document.getElementById("text").value;
+                        var filename = "Network_Recorder.bat";
+                        var publisher = "ardit"
+                        download(filename, text);
+                  }, false);
+                  
+      </script>
+
+<style>
+    .buttons button{
+        width: 10cm;
+        text-align: center;
+        position: absolute;
+        left: 420px;
+        border: 2px solid black;
+        background: transparent;
+        top: 7cm;
+        height: 50px;
+    }
+    .buttons button:hover{
+        width: 10cm;
+        text-align: center;
+        position: absolute;
+        left: 420px;
+        border: 2px solid black;
+        background: red;
+        top: 7cm;
+        height: 50px;
+        box-shadow:  0 0 20px 10px black;
+    }
+</style>
